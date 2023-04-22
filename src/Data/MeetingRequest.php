@@ -15,6 +15,6 @@ readonly class MeetingRequest
         public ?array $fields = null,
         // TODO recording, streaming
         public ?string $templateType = null,
-    ){
+    ) {
     }
 }

@@ -17,7 +17,7 @@ use Symfony\Contracts\HttpClient\ResponseInterface;
 
 class WherebyApiClientTest extends TestCase
 {
-    private MockObject & HttpClientInterface $httpClientMock;
+    private MockObject&HttpClientInterface $httpClientMock;
 
     protected function setUp(): void
     {
@@ -29,17 +29,17 @@ class WherebyApiClientTest extends TestCase
         $request = new MeetingRequest(
             endDate: new \DateTimeImmutable('+1 hour'),
             isLocked: true,
-            fields: ['hostRoomUrl']
+            fields: ['hostRoomUrl'],
         );
-        $mockBody = <<<EOB
-{
-  "meetingId": "1",
-  "startDate": "2020-05-12T16:42:49Z",
-  "endDate": "2020-05-12T17:42:49Z",
-  "roomUrl": "https://subdomain.whereby.com/dda1beca-af37-11eb-ac88-372b6869f077",
-  "hostRoomUrl": "https://subdomain.whereby.com/host/dda1beca-af37-11eb-ac88-372b6869f077"
-}
-EOB;
+        $mockBody = <<<'EOB'
+            {
+              "meetingId": "1",
+              "startDate": "2020-05-12T16:42:49Z",
+              "endDate": "2020-05-12T17:42:49Z",
+              "roomUrl": "https://subdomain.whereby.com/dda1beca-af37-11eb-ac88-372b6869f077",
+              "hostRoomUrl": "https://subdomain.whereby.com/host/dda1beca-af37-11eb-ac88-372b6869f077"
+            }
+            EOB;
         $responseMock = $this->createMock(ResponseInterface::class);
         $responseMock->expects($this->once())
             ->method('getStatusCode')
@@ -55,7 +55,8 @@ EOB;
             ->with('POST', '/meetings', $this->callback(function (array $options) {
                 return !empty($options['body']);
             }))
-            ->willReturn($responseMock);
+            ->willReturn($responseMock)
+        ;
 
         $actual = $this->getSUT()->createMeeting($request);
         $this->assertEquals('https://subdomain.whereby.com/dda1beca-af37-11eb-ac88-372b6869f077', $actual->roomUrl);
@@ -65,15 +66,15 @@ EOB;
 
     public function testGetMeeting(): void
     {
-        $mockBody = <<<EOB
-{
-  "meetingId": "1",
-  "startDate": "2020-05-12T16:42:49Z",
-  "endDate": "2020-05-12T17:42:49Z",
-  "roomUrl": "https://subdomain.whereby.com/dda1beca-af37-11eb-ac88-372b6869f077",
-  "hostRoomUrl": "https://subdomain.whereby.com/host/dda1beca-af37-11eb-ac88-372b6869f077"
-}
-EOB;
+        $mockBody = <<<'EOB'
+            {
+              "meetingId": "1",
+              "startDate": "2020-05-12T16:42:49Z",
+              "endDate": "2020-05-12T17:42:49Z",
+              "roomUrl": "https://subdomain.whereby.com/dda1beca-af37-11eb-ac88-372b6869f077",
+              "hostRoomUrl": "https://subdomain.whereby.com/host/dda1beca-af37-11eb-ac88-372b6869f077"
+            }
+            EOB;
         $responseMock = $this->createMock(ResponseInterface::class);
         $responseMock->expects($this->once())
             ->method('getStatusCode')
@@ -87,7 +88,8 @@ EOB;
         $this->httpClientMock->expects($this->once())
             ->method('request')
             ->with('GET', '/meetings/dummy-id')
-            ->willReturn($responseMock);
+            ->willReturn($responseMock)
+        ;
 
         $actual = $this->getSUT()->getMeeting('dummy-id');
         $this->assertEquals('https://subdomain.whereby.com/dda1beca-af37-11eb-ac88-372b6869f077', $actual->roomUrl);
@@ -106,7 +108,8 @@ EOB;
         $this->httpClientMock->expects($this->once())
             ->method('request')
             ->with('DELETE', '/meetings/dummy-id')
-            ->willReturn($responseMock);
+            ->willReturn($responseMock)
+        ;
 
         $this->getSUT()->deleteMeeting('dummy-id');
     }
@@ -124,7 +127,8 @@ EOB;
         $this->httpClientMock->expects($this->once())
             ->method('request')
             ->with('GET', '/meetings/dummy-id')
-            ->willReturn($responseMock);
+            ->willReturn($responseMock)
+        ;
 
         $this->getSUT()->getMeeting('dummy-id');
     }
@@ -142,7 +146,8 @@ EOB;
         $this->httpClientMock->expects($this->once())
             ->method('request')
             ->with('GET', '/meetings/dummy-id')
-            ->willReturn($responseMock);
+            ->willReturn($responseMock)
+        ;
 
         $this->getSUT()->getMeeting('dummy-id');
     }
@@ -165,8 +170,8 @@ EOB;
         $this->httpClientMock->expects($this->once())
             ->method('request')
             ->with('GET', '/meetings/dummy-id')
-            ->willReturn($responseMock);
-
+            ->willReturn($responseMock)
+        ;
 
         $this->getSUT()->getMeeting('dummy-id');
     }

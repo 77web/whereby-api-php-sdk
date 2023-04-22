@@ -49,7 +49,7 @@ class WherebyApiClient implements WherebyApiClientInterface
      */
     public function deleteMeeting(string $meetingId): void
     {
-        $this->makeRequest('DELETE', '/meetings/'.$meetingId, [], 204);
+        $this->makeRequest('DELETE', '/meetings/' . $meetingId, [], 204);
     }
 
     /**
@@ -57,14 +57,14 @@ class WherebyApiClient implements WherebyApiClientInterface
      */
     public function getMeeting(string $meetingId): Data\MeetingResponse
     {
-        $response = $this->makeRequest('GET', '/meetings/'.$meetingId, [], 200);
+        $response = $this->makeRequest('GET', '/meetings/' . $meetingId, [], 200);
 
         return $this->serializer->deserialize($response->getContent(), Data\MeetingResponse::class, 'json');
     }
 
     /**
      * @param array<string, mixed> $options
-     * @return ResponseInterface
+     *
      * @throws ApiException
      */
     private function makeRequest(string $method, string $path, array $options, int $expectedStatusCode): ResponseInterface
@@ -83,9 +83,6 @@ class WherebyApiClient implements WherebyApiClientInterface
     }
 
     /**
-     * @param ResponseInterface $response
-     *
-     * @return ApiException
      * @throws AuthenticationException
      * @throws YouAreRateLimitedException
      */

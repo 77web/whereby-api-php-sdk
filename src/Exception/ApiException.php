@@ -6,5 +6,4 @@ namespace Nanaweb\WherebyApi\Exception;
 
 class ApiException extends \Exception
 {
-
 }

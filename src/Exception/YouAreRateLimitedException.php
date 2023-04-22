@@ -7,5 +7,4 @@ namespace Nanaweb\WherebyApi\Exception;
 // for 429 errors
 class YouAreRateLimitedException extends ApiException
 {
-
 }

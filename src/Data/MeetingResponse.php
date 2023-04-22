@@ -13,7 +13,7 @@ readonly class MeetingResponse
         public \DateTimeImmutable $startDate = new \DateTimeImmutable(),
         public \DateTimeImmutable $endDate = new \DateTimeImmutable(),
         public ?string $hostRoomUrl = null,
-        public ?string $viewerRoomUrl = null
+        public ?string $viewerRoomUrl = null,
     ) {
     }
 }
