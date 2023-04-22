@@ -52,16 +52,14 @@ class WherebyApiClientTest extends TestCase
 
         $this->httpClientMock->expects($this->once())
             ->method('request')
-            ->with('POST', '/meetings', $this->callback(function (array $options) {
-                return !empty($options['body']);
-            }))
+            ->with('POST', '/meetings', $this->callback(fn (array $options): bool => !empty($options['body'])))
             ->willReturn($responseMock)
         ;
 
         $actual = $this->getSUT()->createMeeting($request);
-        $this->assertEquals('https://subdomain.whereby.com/dda1beca-af37-11eb-ac88-372b6869f077', $actual->roomUrl);
-        $this->assertEquals('https://subdomain.whereby.com/host/dda1beca-af37-11eb-ac88-372b6869f077', $actual->hostRoomUrl);
-        $this->assertEquals('2020-05-12 17:42:49', $actual->endDate->format('Y-m-d H:i:s'));
+        $this->assertSame('https://subdomain.whereby.com/dda1beca-af37-11eb-ac88-372b6869f077', $actual->roomUrl);
+        $this->assertSame('https://subdomain.whereby.com/host/dda1beca-af37-11eb-ac88-372b6869f077', $actual->hostRoomUrl);
+        $this->assertSame('2020-05-12 17:42:49', $actual->endDate->format('Y-m-d H:i:s'));
     }
 
     public function testGetMeeting(): void
@@ -92,9 +90,9 @@ class WherebyApiClientTest extends TestCase
         ;
 
         $actual = $this->getSUT()->getMeeting('dummy-id');
-        $this->assertEquals('https://subdomain.whereby.com/dda1beca-af37-11eb-ac88-372b6869f077', $actual->roomUrl);
-        $this->assertEquals('https://subdomain.whereby.com/host/dda1beca-af37-11eb-ac88-372b6869f077', $actual->hostRoomUrl);
-        $this->assertEquals('2020-05-12 17:42:49', $actual->endDate->format('Y-m-d H:i:s'));
+        $this->assertSame('https://subdomain.whereby.com/dda1beca-af37-11eb-ac88-372b6869f077', $actual->roomUrl);
+        $this->assertSame('https://subdomain.whereby.com/host/dda1beca-af37-11eb-ac88-372b6869f077', $actual->hostRoomUrl);
+        $this->assertSame('2020-05-12 17:42:49', $actual->endDate->format('Y-m-d H:i:s'));
     }
 
     public function testDeleteMeeting(): void

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Nanaweb\WherebyApi;
 
+use Nanaweb\WherebyApi\Data\MeetingRequest;
+use Nanaweb\WherebyApi\Data\MeetingResponse;
 use Nanaweb\WherebyApi\Exception\ApiException;
 use Nanaweb\WherebyApi\Exception\AuthenticationException;
 use Nanaweb\WherebyApi\Exception\YouAreRateLimitedException;
@@ -35,13 +37,13 @@ class WherebyApiClient implements WherebyApiClientInterface
     /**
      * @throws ApiException
      */
-    public function createMeeting(Data\MeetingRequest $request): Data\MeetingResponse
+    public function createMeeting(MeetingRequest $request): MeetingResponse
     {
         $response = $this->makeRequest('POST', '/meetings', [
             'body' => $this->serializer->serialize($request, 'json'),
         ], 201);
 
-        return $this->serializer->deserialize($response->getContent(), Data\MeetingResponse::class, 'json');
+        return $this->serializer->deserialize($response->getContent(), MeetingResponse::class, 'json');
     }
 
     /**
@@ -55,11 +57,11 @@ class WherebyApiClient implements WherebyApiClientInterface
     /**
      * @throws ApiException
      */
-    public function getMeeting(string $meetingId): Data\MeetingResponse
+    public function getMeeting(string $meetingId): MeetingResponse
     {
         $response = $this->makeRequest('GET', '/meetings/' . $meetingId, [], 200);
 
-        return $this->serializer->deserialize($response->getContent(), Data\MeetingResponse::class, 'json');
+        return $this->serializer->deserialize($response->getContent(), MeetingResponse::class, 'json');
     }
 
     /**

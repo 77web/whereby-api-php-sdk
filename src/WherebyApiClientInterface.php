@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Nanaweb\WherebyApi;
 
+use Nanaweb\WherebyApi\Data\MeetingRequest;
+use Nanaweb\WherebyApi\Data\MeetingResponse;
 use Nanaweb\WherebyApi\Exception\ApiException;
 
 interface WherebyApiClientInterface
@@ -11,7 +13,7 @@ interface WherebyApiClientInterface
     /**
      * @throws ApiException
      */
-    public function createMeeting(Data\MeetingRequest $request): Data\MeetingResponse;
+    public function createMeeting(MeetingRequest $request): MeetingResponse;
 
     /**
      * @throws ApiException
@@ -21,5 +23,5 @@ interface WherebyApiClientInterface
     /**
      * @throws ApiException
      */
-    public function getMeeting(string $meetingId): Data\MeetingResponse;
+    public function getMeeting(string $meetingId): MeetingResponse;
 }
