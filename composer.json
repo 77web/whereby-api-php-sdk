@@ -18,6 +18,11 @@
             "Nanaweb\\WherebyApi\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Nanaweb\\WherebyApi\\Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "77web",
