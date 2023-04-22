@@ -4,7 +4,9 @@
     "require": {
         "php": "^8.2",
         "symfony/http-client": "^6.2",
-        "symfony/serializer": "*"
+        "symfony/serializer": "*",
+        "symfony/property-info": "*",
+        "symfony/property-access": "*"
     },
     "require-dev": {
         "quartetcom/static-analysis-kit": "^8.2",
