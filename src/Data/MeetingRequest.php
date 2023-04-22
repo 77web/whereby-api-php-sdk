@@ -6,6 +6,9 @@ namespace Nanaweb\WherebyApi\Data;
 
 readonly class MeetingRequest
 {
+    /**
+     * @param null|string[] $fields
+     */
     public function __construct(
         public \DateTimeImmutable $endDate,
         public ?bool $isLocked = null,
