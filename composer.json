@@ -1,0 +1,28 @@
+{
+    "name": "nanaweb/whereby-api-php-sdk",
+    "type": "library",
+    "require": {
+        "symfony/http-client": "^6.2"
+    },
+    "require-dev": {
+        "quartetcom/static-analysis-kit": "^8.2",
+        "phpunit/phpunit": "^10.1"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Nanaweb\\WherebyApiPhpSdk\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "77web",
+            "email": "hishida77web@gmail.com"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "quartetcom/static-analysis-kit": true
+        }
+    }
+}
