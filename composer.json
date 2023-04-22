@@ -3,7 +3,8 @@
     "type": "library",
     "require": {
         "php": "^8.2",
-        "symfony/http-client": "^6.2"
+        "symfony/http-client": "^6.2",
+        "symfony/serializer": "*"
     },
     "require-dev": {
         "quartetcom/static-analysis-kit": "^8.2",
