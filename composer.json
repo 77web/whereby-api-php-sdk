@@ -11,7 +11,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Nanaweb\\WherebyApiPhpSdk\\": "src/"
+            "Nanaweb\\WherebyApi\\": "src/"
         }
     },
     "authors": [
@@ -24,5 +24,21 @@
         "allow-plugins": {
             "quartetcom/static-analysis-kit": true
         }
+    },
+    "scripts": {
+        "analyse": "@php static-analysis-kit analyse",
+        "fix": "@php static-analysis-kit fix",
+        "fix:all": "@php static-analysis-kit fix --risky --rector",
+        "fix:rector": "@php static-analysis-kit fix --rector",
+        "fix:risky": "@php static-analysis-kit fix --risky",
+        "test": "# To run your tests using this command, you must define your test script in composer.json."
+    },
+    "scripts-descriptions": {
+        "analyse": "Analyses code in this project fully.",
+        "fix": "Tries to fix code in this project automatically.",
+        "fix:all": "Tries to fix code in this project automatically fully.",
+        "fix:rector": "Tries to fix code in this project automatically with rector enabled.",
+        "fix:risky": "Tries to fix code in this project automatically with risky rules.",
+        "test": "Runs the tests."
     }
 }
