@@ -1,12 +1,13 @@
 {
     "name": "nanaweb/whereby-api-php-sdk",
+    "description": "simple SDK for whereby embedded video call api",
     "type": "library",
     "require": {
         "php": "^8.2",
         "symfony/http-client": "^6.2",
-        "symfony/serializer": "*",
-        "symfony/property-info": "*",
-        "symfony/property-access": "*"
+        "symfony/serializer": "^6.2",
+        "symfony/property-info": "^6.2",
+        "symfony/property-access": "^6.2"
     },
     "require-dev": {
         "quartetcom/static-analysis-kit": "^8.2",
