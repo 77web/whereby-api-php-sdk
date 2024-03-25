@@ -19,7 +19,7 @@ use Symfony\Contracts\HttpClient\ResponseInterface;
  */
 class WherebyApiClient implements WherebyApiClientInterface
 {
-    private const BASE_URI = 'https://api.whereby.dev/v1';
+    private const string BASE_URI = 'https://api.whereby.dev/v1';
 
     private readonly HttpClientInterface $httpClient;
 
@@ -37,6 +37,7 @@ class WherebyApiClient implements WherebyApiClientInterface
     /**
      * @throws ApiException
      */
+    #[\Override]
     public function createMeeting(MeetingRequest $request): MeetingResponse
     {
         $response = $this->makeRequest('POST', '/meetings', [
@@ -49,6 +50,7 @@ class WherebyApiClient implements WherebyApiClientInterface
     /**
      * @throws ApiException
      */
+    #[\Override]
     public function deleteMeeting(string $meetingId): void
     {
         $this->makeRequest('DELETE', '/meetings/' . $meetingId, [], 204);
@@ -57,6 +59,7 @@ class WherebyApiClient implements WherebyApiClientInterface
     /**
      * @throws ApiException
      */
+    #[\Override]
     public function getMeeting(string $meetingId): MeetingResponse
     {
         $response = $this->makeRequest('GET', '/meetings/' . $meetingId, [], 200);

@@ -19,6 +19,7 @@ class WherebyApiClientTest extends TestCase
 {
     private MockObject&HttpClientInterface $httpClientMock;
 
+    #[\Override]
     protected function setUp(): void
     {
         $this->httpClientMock = $this->createMock(HttpClientInterface::class);
