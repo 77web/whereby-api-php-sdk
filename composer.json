@@ -3,14 +3,14 @@
     "description": "simple SDK for whereby embedded video call api",
     "type": "library",
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
         "symfony/http-client": "^6.4|^7.0",
         "symfony/serializer": "^6.4|^7.0",
         "symfony/property-info": "^6.4|^7.0",
-        "symfony/property-access": "^6.4|^7.2"
+        "symfony/property-access": "^6.4|^7.0"
     },
     "require-dev": {
-        "quartetcom/static-analysis-kit": "^8.2",
+        "quartetcom/static-analysis-kit": "^8.3",
         "phpunit/phpunit": "^10.1"
     },
     "license": "MIT",
