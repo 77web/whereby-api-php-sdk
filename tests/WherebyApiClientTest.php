@@ -52,7 +52,7 @@ class WherebyApiClientTest extends TestCase
 
         $this->httpClientMock->expects($this->once())
             ->method('request')
-            ->with('POST', '/meetings', $this->callback(fn (array $options): bool => !empty($options['body'])))
+            ->with('POST', '/meetings', $this->callback(static fn (array $options): bool => !empty($options['body'])))
             ->willReturn($responseMock)
         ;
 
