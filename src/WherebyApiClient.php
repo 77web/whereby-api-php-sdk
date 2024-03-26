@@ -19,7 +19,7 @@ use Symfony\Contracts\HttpClient\ResponseInterface;
  */
 class WherebyApiClient implements WherebyApiClientInterface
 {
-    private const string BASE_URI = 'https://api.whereby.dev/v1';
+    private const string BASE_URI = 'https://api.whereby.dev';
 
     private readonly HttpClientInterface $httpClient;
 
@@ -40,7 +40,7 @@ class WherebyApiClient implements WherebyApiClientInterface
     #[\Override]
     public function createMeeting(MeetingRequest $request): MeetingResponse
     {
-        $response = $this->makeRequest('POST', '/meetings', [
+        $response = $this->makeRequest('POST', '/v1/meetings', [
             'body' => $this->serializer->serialize($request, 'json'),
         ], 201);
 
@@ -53,7 +53,7 @@ class WherebyApiClient implements WherebyApiClientInterface
     #[\Override]
     public function deleteMeeting(string $meetingId): void
     {
-        $this->makeRequest('DELETE', '/meetings/' . $meetingId, [], 204);
+        $this->makeRequest('DELETE', '/v1/meetings/' . $meetingId, [], 204);
     }
 
     /**
@@ -62,7 +62,7 @@ class WherebyApiClient implements WherebyApiClientInterface
     #[\Override]
     public function getMeeting(string $meetingId): MeetingResponse
     {
-        $response = $this->makeRequest('GET', '/meetings/' . $meetingId, [], 200);
+        $response = $this->makeRequest('GET', '/v1/meetings/' . $meetingId, [], 200);
 
         return $this->serializer->deserialize($response->getContent(), MeetingResponse::class, 'json');
     }

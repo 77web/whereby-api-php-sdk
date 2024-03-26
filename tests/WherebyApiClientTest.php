@@ -53,7 +53,7 @@ class WherebyApiClientTest extends TestCase
 
         $this->httpClientMock->expects($this->once())
             ->method('request')
-            ->with('POST', '/meetings', $this->callback(static fn (array $options): bool => !empty($options['body'])))
+            ->with('POST', '/v1/meetings', $this->callback(static fn (array $options): bool => !empty($options['body'])))
             ->willReturn($responseMock)
         ;
 
@@ -86,7 +86,7 @@ class WherebyApiClientTest extends TestCase
 
         $this->httpClientMock->expects($this->once())
             ->method('request')
-            ->with('GET', '/meetings/dummy-id')
+            ->with('GET', '/v1/meetings/dummy-id')
             ->willReturn($responseMock)
         ;
 
@@ -106,7 +106,7 @@ class WherebyApiClientTest extends TestCase
 
         $this->httpClientMock->expects($this->once())
             ->method('request')
-            ->with('DELETE', '/meetings/dummy-id')
+            ->with('DELETE', '/v1/meetings/dummy-id')
             ->willReturn($responseMock)
         ;
 
@@ -125,7 +125,7 @@ class WherebyApiClientTest extends TestCase
 
         $this->httpClientMock->expects($this->once())
             ->method('request')
-            ->with('GET', '/meetings/dummy-id')
+            ->with('GET', '/v1/meetings/dummy-id')
             ->willReturn($responseMock)
         ;
 
@@ -144,7 +144,7 @@ class WherebyApiClientTest extends TestCase
 
         $this->httpClientMock->expects($this->once())
             ->method('request')
-            ->with('GET', '/meetings/dummy-id')
+            ->with('GET', '/v1/meetings/dummy-id')
             ->willReturn($responseMock)
         ;
 
@@ -168,7 +168,7 @@ class WherebyApiClientTest extends TestCase
 
         $this->httpClientMock->expects($this->once())
             ->method('request')
-            ->with('GET', '/meetings/dummy-id')
+            ->with('GET', '/v1/meetings/dummy-id')
             ->willReturn($responseMock)
         ;
 
