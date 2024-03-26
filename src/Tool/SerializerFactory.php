@@ -25,7 +25,7 @@ class SerializerFactory
                 new DateTimeNormalizer(),
                 new BackedEnumNormalizer(),
                 new JsonSerializableNormalizer(),
-                new ObjectNormalizer(propertyTypeExtractor: new ReflectionExtractor()),
+                new ObjectNormalizer(propertyTypeExtractor: new ReflectionExtractor(), defaultContext: ['skip_null_values' => true]),
             ],
             [
                 new JsonEncoder(),
