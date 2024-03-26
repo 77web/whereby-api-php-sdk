@@ -31,6 +31,9 @@ class WherebyApiClient implements WherebyApiClientInterface
         $this->httpClient = $httpClient->withOptions([
             'auth_bearer' => $apiKey,
             'base_uri' => self::BASE_URI,
+            'headers' => [
+                'Content-Type' => 'application/json',
+            ],
         ]);
     }
 
